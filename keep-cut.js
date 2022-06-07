@@ -38,7 +38,11 @@ function keepLast(str) {
 }
 
 function keepFirstLast(str) {
+  if (str.length == 2) {
+    return str;
+  }
+
   return keepFirst(str) + keepLast(str);
 }
 
-console.log(keepFirstLast("arnold"));
+console.log(keepFirstLast("af"));
