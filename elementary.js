@@ -37,15 +37,50 @@ function multiply(a, b) {
 function divide(a, b) {
   if (a < b && a > 0) {
     return 0;
-  } else if (a < 0) {
+  } else if (a > b && b > 0) {
     let count = 0;
 
-    while (a > b) {
+    while (a >= 0 && a >= b) {
       a -= b;
+      count++;
+    }
+    return count;
+  } else if (a < 0 && b > 0) {
+    let count = 0;
+    let c = -a;
+
+    while (c >= 0 && c >= b) {
+      c -= b;
+      count++;
+    }
+    return -count;
+  } else if (a > 0 && b < 0) {
+    let count = 0;
+    let d = -b;
+
+    while (a >= 0 && a >= d) {
+      a -= d;
+      count++;
+    }
+    return -count;
+  } else if (a < 0 && b < 0) {
+    let count = 0;
+    let c = -a;
+    let d = -b;
+
+    while (c >= 0 && c >= d) {
+      c -= d;
       count++;
     }
     return count;
   }
 }
 
-console.log(divide(12, 2));
+function modulo(a, b) {
+  for (let i = a; i > 0; i -= b) {
+    result = i;
+  }
+  return result;
+}
+
+console.log(modulo(34, 78));
