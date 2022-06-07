@@ -77,10 +77,10 @@ function divide(a, b) {
 }
 
 function modulo(a, b) {
-  for (let i = a; i > 0; i -= b) {
-    result = i;
-  }
-  return result;
+  let c = divide(a, b);
+  let d = multiply(c, b);
+  let e = a - d;
+  return e;
 }
 
 console.log(modulo(34, 78));
