@@ -38,11 +38,11 @@ function keepLast(str) {
 }
 
 function keepFirstLast(str) {
-  if (str.length == 2) {
+  if (str.length >= 2 && str.length < 4) {
     return str;
   }
 
   return keepFirst(str) + keepLast(str);
 }
 
-console.log(keepFirstLast("af"));
+//console.log(keepFirstLast("af"));
