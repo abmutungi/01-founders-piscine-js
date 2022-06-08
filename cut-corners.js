@@ -82,12 +82,14 @@ function modulo(a, b) {
 }
 
 const round = (num) => {
-  if (num >= 0) {
-    let lastDigit = modulo(num, 10);
+  if (num == 0) {
+    return 0;
+  }
+  if (num > 0) {
     let moduloNum = modulo(num, 1);
 
     if (moduloNum != 0) {
-      if (lastDigit >= 0.5) {
+      if (moduloNum >= 0.5) {
         return num - moduloNum + 1;
       }
       return num - moduloNum;
@@ -95,11 +97,10 @@ const round = (num) => {
     return num;
   } else {
     let numPos = num * -1;
-    let lastDigit = modulo(numPos, 10);
     let moduloNum = modulo(numPos, 1);
 
     if (moduloNum != 0) {
-      if (lastDigit >= 0.5) {
+      if (moduloNum >= 0.5) {
         return -(numPos - moduloNum + 1);
       }
       return -(numPos - moduloNum);
@@ -111,15 +112,56 @@ const round = (num) => {
 const ceil = (num) => {
   let moduloNum = modulo(num, 1);
 
-  return num - moduloNum + 1;
+  if (num == 0) {
+    return 0;
+  }
+  if (num > 0) {
+    return num - moduloNum + 1;
+  }
+  return num - moduloNum;
 };
+
+// console.log(ceil(0));
 
 const floor = (num) => {
   let moduloNum = modulo(num, 1);
-  return num - moduloNum;
+
+  if (num == 0) {
+    return 0;
+  }
+  if (num > 0) {
+    return num - moduloNum;
+  }
+  return num - moduloNum - 1;
 };
 
+
 const trunc = (num) => {
-  let moduloNum = modulo(num, 1);
-  return num - moduloNum;
-};
+    let moduloNum = modulo(num, 1);
+  
+    if (num == 0) {
+      return 0;
+    }
+    if (num > 0) {
+      return num - moduloNum;
+    }
+    return num - moduloNum - 1;
+  };
+
+// const trunc = (num) => {
+//   let trunc = num - 0xfffffffff;
+
+//   if (num > 0xfffffffff) {
+//     return nutrunc;
+//   }
+
+//   let moduloNum = modulo(num, 1);
+
+//   if (num == 0) {
+//     return 0;
+//   }
+//   if (num > 0) {
+//     return num - moduloNum;
+//   }
+//   return num - moduloNum;
+// };
