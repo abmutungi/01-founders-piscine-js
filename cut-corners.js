@@ -135,33 +135,20 @@ const floor = (num) => {
   return num - moduloNum - 1;
 };
 
-
 const trunc = (num) => {
-    let moduloNum = modulo(num, 1);
-  
-    if (num == 0) {
-      return 0;
-    }
-    if (num > 0) {
-      return num - moduloNum;
-    }
-    return num - moduloNum - 1;
-  };
+  let trunc = num - 0xfffffffff;
+  let moduloNum = modulo(num, 1);
+  let moduloTrunc = modulo(trunc, 1);
 
-// const trunc = (num) => {
-//   let trunc = num - 0xfffffffff;
+  if (num > 0xfffffffff) {
+    return 0xfffffffff + num - moduloTrunc;
+  }
 
-//   if (num > 0xfffffffff) {
-//     return nutrunc;
-//   }
-
-//   let moduloNum = modulo(num, 1);
-
-//   if (num == 0) {
-//     return 0;
-//   }
-//   if (num > 0) {
-//     return num - moduloNum;
-//   }
-//   return num - moduloNum;
-// };
+  if (num == 0) {
+    return 0;
+  }
+  if (num > 0) {
+    return num - moduloNum;
+  }
+  return num - moduloNum;
+};
