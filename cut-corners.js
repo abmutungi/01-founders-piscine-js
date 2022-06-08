@@ -32,8 +32,6 @@ function multiply(a, b) {
   }
 }
 
-//console.log(multiply(12, -12));
-
 function divide(a, b) {
   if (a < b && a > 0) {
     return 0;
@@ -83,4 +81,45 @@ function modulo(a, b) {
   return e;
 }
 
-console.log(modulo(45.2, 1));
+const round = (num) => {
+  if (num >= 0) {
+    let lastDigit = modulo(num, 10);
+    let moduloNum = modulo(num, 1);
+
+    if (moduloNum != 0) {
+      if (lastDigit >= 0.5) {
+        return num - moduloNum + 1;
+      }
+      return num - moduloNum;
+    }
+    return num;
+  } else {
+    let numPos = num * -1;
+    let lastDigit = modulo(numPos, 10);
+    let moduloNum = modulo(numPos, 1);
+
+    if (moduloNum != 0) {
+      if (lastDigit >= 0.5) {
+        return -(numPos - moduloNum + 1);
+      }
+      return -(numPos - moduloNum);
+    }
+    return numPos;
+  }
+};
+
+const ceil = (num) => {
+  let moduloNum = modulo(num, 1);
+
+  return num - moduloNum + 1;
+};
+
+const floor = (num) => {
+  let moduloNum = modulo(num, 1);
+  return num - moduloNum;
+};
+
+const trunc = (num) => {
+  let moduloNum = modulo(num, 1);
+  return num - moduloNum;
+};
