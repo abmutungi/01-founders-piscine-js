@@ -1,26 +1,38 @@
-const split = (str, sep) => {
-  let arr = [];
-  let st = "";
-  let newStr = str.replaceAll(sep, "*");
+// const split = (str, sep) => {
+//   let arr = [];
+//   let st = "";
+//   let newStr = str.replaceAll(sep, "*");
 
-  if (sep === "") {
-    for (let i = 0; i < str.length; i++) {
-      arr.push(str[i]);
-    }
-    return arr;
-  }
+//   if (sep === "") {
+//     for (let i = 0; i < str.length; i++) {
+//       arr.push(str[i]);
+//     }
+//     return arr;
+//   }
 
-  for (let i = 0; i < newStr.length; i++) {
-    if (newStr[i] !== "*") {
-      st += newStr[i];
-    } else if (newStr[i] === "*") {
-      arr.push(st);
-      st = "";
+//   for (let i = 0; i < newStr.length; i++) {
+//     if (newStr[i] !== "*") {
+//       st += newStr[i];
+//     } else if (newStr[i] === "*") {
+//       arr.push(st);
+//       st = "";
+//     }
+//   }
+//   arr.push(st);
+//   return arr;
+// };
+function split(str, sep) {
+    let arr = []
+    for (let i = 0; i < str.length - sep.length+1; i++) {
+        if (str.slice(i,i+sep.length) == sep) {
+            arr.push(str.slice(0, i))
+            str = str.slice(i + sep.length)
+            i = 0
+        }
     }
-  }
-  arr.push(st);
-  return arr;
-};
+    arr.push(str)
+    return arr
+}
 
 // console.log(split("a b c", " "));
 // console.log(split("ggg - ddd - b", " - "));
