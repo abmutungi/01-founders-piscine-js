@@ -21,24 +21,6 @@
 //   arr.push(st);
 //   return arr;
 // };
-const split = (str,sep) => {
-    if (sep == "") {
-        return Array.from(str)
-    }
-
-    let result = []
-    let start = 0,end = 0
-    
-    while (str.search(sep) !== -1) {
-        end = str.search(sep)
-        str = str.replace(sep,"^")
-        result.push(str.slice(start,end))
-        start = end+1
-    }
-
-    result.push(str.slice(start))
-    return result
-}
 
 // console.log(split("a b c", " "));
 // console.log(split("ggg - ddd - b", " - "));
