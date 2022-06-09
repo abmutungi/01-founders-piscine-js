@@ -81,6 +81,14 @@ function modulo(a, b) {
   return e;
 }
 
+// function modulo(a, b) {
+//     if (a < b && a > 0) {
+//         return a
+//     } else {
+//         return a - (multiply(divide(a, b), b))
+//     }
+//   }
+
 const round = (num) => {
   if (num == 0) {
     return 0;
@@ -133,43 +141,71 @@ const floor = (num) => {
   return num - moduloNum - 1;
 };
 
-const trunc = (num) => {
-  let moduloNum = modulo(num, 1);
+// const trunc = (num) => {
+//   let moduloNum = modulo(num, 1);
+
+//   if (num === 0) {
+//     return 0;
+//   }
+
+//   if (num > 0) {
+//     return num - moduloNum;
+//   }
+
+//   if (num < 0) {
+//     num = Math.abs(num);
+//     return -Math.abs(num - modulo(num, 1));
+//   }
+
+//   if (num > 0xfffffffff) {
+//     let diff = num - 0xfffffffff;
+//     // let st = '0xfffffffff + '
+//     // let res = diff - modulo(diff, 1);
+
+//     if (diff > 0 && modulo(diff, 1) === 0) {
+//       return diff + 0xfffffffff;
+//     } else if (diff > 0 && modulo(diff, 1) !== 0) {
+//       return diff - modulo(diff, 1) + 0xfffffffff;
+//     } else if (diff < 0) {
+//       diff = Math.abs(diff);
+//       if (modulo(diff, 1) === 0) {
+//         return -Math.abs(diff) + 0xfffffffff;
+//       } else if (modulo(diff, 1) !== 0) {
+//         return -Maths.abs(diff - modulo(diff, 1)) + 0xfffffffff;
+//       }
+//     }
+//     // if (diff == 0) {
+//     //   return num;
+//     // }
+//   }
+// };
+function trunc(num) {
+  if (num > 0xfffffffff) {
+    var ctx = num - 0xfffffffff;
+    if (ctx > 0 && modulo(ctx, 1) === 0) {
+      return ctx + 0xfffffffff;
+    } else if (ctx > 0 && modulo(ctx, 1) !== 0) {
+      return ctx - modulo(ctx, 1) + 0xfffffffff;
+    } else if (ctx < 0) {
+      ctx = Math.abs(ctx);
+      if (modulo(ctx, 1) === 0) {
+        return -Math.abs(ctx) + 0xfffffffff;
+      } else if (modulo(ctx, 1) !== 0) {
+        return -Math.abs(ctx - modulo(ctx, 1)) + 0xfffffffff;
+      }
+    }
+  }
 
   if (num === 0) {
     return 0;
-  }
-
-  if (num > 0) {
-    return num - moduloNum;
-  }
-
-  if (num < 0) {
+  } else if (modulo(num, 1) === 0 && num > 0) {
+    return num;
+  } else if (modulo(num, 1) !== 0 && num > 0) {
+    return num - modulo(num, 1);
+  } else if (num < 0) {
     num = Math.abs(num);
     return -Math.abs(num - modulo(num, 1));
   }
-
-  if (num > 0xfffffffff) {
-    let diff = num - 0xfffffffff;
-    // let st = '0xfffffffff + '
-    // let res = diff - modulo(diff, 1);
-
-    if (diff > 0 && modulo(diff, 1) === 0) {
-      return diff + 0xfffffffff;
-    } else if (diff > 0 && modulo(diff, 1) !== 0) {
-      return diff - modulo(diff, 1) + 0xfffffffff;
-    } else if (diff < 0) {
-      diff = Math.abs(diff);
-      if (modulo(diff, 1) === 0) {
-        return -Math.abs(diff) + 0xfffffffff;
-      } else if (modulo(diff, 1) !== 0) {
-        return -Maths.abs(diff - modulo(diff, 1)) + 0xfffffffff;
-      }
-    }
-    // if (diff == 0) {
-    //   return num;
-    // }
-  }
-};
+}
 
 // console.log(trunc(12381293.46));
