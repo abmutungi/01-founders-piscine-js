@@ -22,26 +22,26 @@ const split = (str, sep) => {
   return arr;
 };
 
-console.log(split("a b c", " "));
-console.log(split("ggg - ddd - b", " - "));
-console.log(split("ee,ff,g,", ","));
-console.log(split("Riad", " "));
-console.log(split("rrrr", "rr"));
-console.log(split("rrirr", "rr"));
-console.log(split("Riad", ""));
-console.log(split("", "Riad"));
+// console.log(split("a b c", " "));
+// console.log(split("ggg - ddd - b", " - "));
+// console.log(split("ee,ff,g,", ","));
+// console.log(split("Riad", " "));
+// console.log(split("rrrr", "rr"));
+// console.log(split("rrirr", "rr"));
+// console.log(split("Riad", ""));
+// console.log(split("", "Riad"));
 
-const  join = (arr, sep) => {
-    let res = ''
-    for (let i = 0; i < arr.length; i++) {
-        if (sep.length == 0) {
-            res += arr[i]
-        } else {
-            res += arr[i] + sep
-        }
+const join = (arr, sep) => {
+  let str = "";
+  for (let i = 0; i < arr.length; i++) {
+    if (sep.length == 0) {
+      str += arr[i];
+    } else {
+      str += arr[i] + sep;
     }
+  }
 
-    res = res.slice(0, res.length - sep.length)
-    return res
-}
-console.log(join[("ee", "ff", "g", "")], ",");
+  str = str.slice(0, str.length - sep.length);
+  return str;
+};
+console.log(join(["ee", "ff", "g", ""], ","));
