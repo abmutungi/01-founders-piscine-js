@@ -121,8 +121,6 @@ const ceil = (num) => {
   return num - moduloNum;
 };
 
-// console.log(ceil(0));
-
 const floor = (num) => {
   let moduloNum = modulo(num, 1);
 
@@ -141,8 +139,18 @@ const trunc = (num) => {
   if (num == 0) {
     return 0;
   }
+
+  if (num > 0xfffffffff) {
+    let diff = num - 0xfffffffff;
+    // let st = '0xfffffffff + '
+    let res = diff - modulo(diff, 1);
+    return 0xfffffffff + res;
+  }
+
   if (num > 0) {
     return num - moduloNum;
   }
   return num - moduloNum;
 };
+
+console.log(trunc(0xfffffffff + 9.8));
