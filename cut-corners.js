@@ -140,11 +140,19 @@ const trunc = (num) => {
     return 0;
   }
 
-  if (num > 0xfffffffff) {
+  if (num > 0xfffffffff && modulo(num, 1) != 0 && num > 0) {
     let diff = num - 0xfffffffff;
     // let st = '0xfffffffff + '
     let res = diff - modulo(diff, 1);
     return 0xfffffffff + res;
+  }
+  if (Math.abs(num) > 0xfffffffff && modulo(Math.abs(num), 1) != 0 && num < 0) {
+    numP = Math.abs(num);
+
+    let diff = numP - 0xfffffffff;
+    // let st = '0xfffffffff + '
+    let res = diff - modulo(diff, 1);
+    return -Math.abs(0xfffffffff + res);
   }
 
   if (num > 0) {

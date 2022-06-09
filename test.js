@@ -1,4 +1,4 @@
-var num = 15.5,
-  lastDigit = num % 10;
+var num = -155,
+  lastDigit = num % 1;
 
 console.log(lastDigit);
