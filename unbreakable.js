@@ -21,17 +21,23 @@
 //   arr.push(st);
 //   return arr;
 // };
-function split(str, sep) {
-    let arr = []
-    for (let i = 0; i < str.length - sep.length+1; i++) {
-        if (str.slice(i,i+sep.length) == sep) {
-            arr.push(str.slice(0, i))
-            str = str.slice(i + sep.length)
-            i = 0
-        }
+const split = (str,sep) => {
+    if (sep == "") {
+        return Array.from(str)
     }
-    arr.push(str)
-    return arr
+
+    let result = []
+    let start = 0,end = 0
+    
+    while (str.search(sep) !== -1) {
+        end = str.search(sep)
+        str = str.replace(sep,"^")
+        result.push(str.slice(start,end))
+        start = end+1
+    }
+
+    result.push(str.slice(start))
+    return result
 }
 
 // console.log(split("a b c", " "));
@@ -56,4 +62,4 @@ const join = (arr, sep) => {
   str = str.slice(0, str.length - sep.length);
   return str;
 };
-console.log(join(["ee", "ff", "g", ""], ","));
+//console.log(join(["ee", "ff", "g", ""], ","));
