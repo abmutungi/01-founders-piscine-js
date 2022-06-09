@@ -34,7 +34,6 @@ console.log(split("", "Riad"));
 const  join = (arr, sep) => {
     let res = ''
     for (let i = 0; i < arr.length; i++) {
-        // console.log(sep.length)
         if (sep.length == 0) {
             res += arr[i]
         } else {
