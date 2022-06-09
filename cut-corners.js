@@ -136,7 +136,7 @@ const floor = (num) => {
 const trunc = (num) => {
   let moduloNum = modulo(num, 1);
 
-  if (num == 0) {
+  if (num === 0) {
     return 0;
   }
 
@@ -154,16 +154,16 @@ const trunc = (num) => {
     // let st = '0xfffffffff + '
     // let res = diff - modulo(diff, 1);
 
-    if (diff > 0 && modulo(diff, 1) == 0) {
+    if (diff > 0 && modulo(diff, 1) === 0) {
       return diff + 0xfffffffff;
     } else if (diff > 0 && modulo(diff, 1) !== 0) {
       return diff - modulo(diff, 1) + 0xfffffffff;
     } else if (diff < 0) {
       diff = Math.abs(diff);
-      if (modulo(diff, 1) == 0) {
+      if (modulo(diff, 1) === 0) {
         return -Math.abs(diff) + 0xfffffffff;
       } else if (modulo(diff, 1) !== 0) {
-        return -Maths.abs(diff - modulo(diff, 1) + 0xfffffffff);
+        return -Maths.abs(diff - modulo(diff, 1)) + 0xfffffffff;
       }
     }
     // if (diff == 0) {
@@ -172,4 +172,4 @@ const trunc = (num) => {
   }
 };
 
-console.log(trunc(12381293.46));
+// console.log(trunc(12381293.46));
