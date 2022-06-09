@@ -153,4 +153,4 @@ const trunc = (num) => {
   return num - moduloNum;
 };
 
-console.log(trunc(0xfffffffff + 9.8));
+//console.log(trunc(0xfffffffff + 9.8));
