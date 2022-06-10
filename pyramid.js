@@ -1,7 +1,7 @@
 const pyramid = (str, num) => {
   let res = "";
   for (let i = 0; i < num; i++) {
-    for (let j = 0; j < num - i; j++) {
+    for (let j = 0; j < num - i - 1; j++) {
       res += " ";
     }
 
@@ -13,4 +13,4 @@ const pyramid = (str, num) => {
   return res.trimEnd();
 };
 
-console.log(pyramid("Z", 6));
+console.log(pyramid("a", 5));
