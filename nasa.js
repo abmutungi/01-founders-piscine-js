@@ -12,6 +12,7 @@ const nasa = (num) => {
       str += i + " ";
     }
   }
-  return str;
+  //
+  return str.trim();
 };
 console.log(nasa(15));
