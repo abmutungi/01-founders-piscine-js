@@ -8,5 +8,5 @@ const triangle = (str, num) => {
   }
   return res.trim();
 };
-console.log(triangle("{}", 5));
+console.log(triangle("Z", 25));
 // console.log(line);
