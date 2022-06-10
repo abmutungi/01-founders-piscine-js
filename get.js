@@ -6,9 +6,11 @@ const get = (src, path) => {
   let res = src;
 
   pArr.forEach((element) => {
+    if (res === undefined) {
+      return res;
+    }
     res = res[element];
   });
-
   return res;
 };
 
