@@ -1,6 +1,7 @@
+const vowels = /[aeiou]/gi;
+
 const vowelDots = (str) => {
-  let vd = /[aeiou]/gi;
-  let regX = str.match(vd);
+  let regX = str.match(vowels);
   let res = "";
 
   if (regX === null) {
