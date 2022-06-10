@@ -1,5 +1,5 @@
-// const src = { nested: { key: "peekaboo" } };
-// const path = "nested.key";
+const src = { nested: { key: "peekaboo" } };
+const path = "nested.key";
 
 const get = (src, path) => {
   let pArr = path.split(".");
