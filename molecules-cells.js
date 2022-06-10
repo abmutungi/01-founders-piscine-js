@@ -1,5 +1,5 @@
 const RNA = (str) => {
-  res = "";
+  let res = "";
   for (let i = 0; i < str.length; i++) {
     if (str[i] === "G") {
       res += "C";
@@ -15,7 +15,7 @@ const RNA = (str) => {
 };
 
 const DNA = (str) => {
-  res = "";
+  let res = "";
   for (let i = 0; i < str.length; i++) {
     if (str[i] === "C") {
       res += "G";
