@@ -6,7 +6,7 @@ const triangle = (str, num) => {
     }
     res += str + "\n";
   }
-  return res.trim();
+  return String(res.trim());
 };
-console.log(triangle("*", 14));
+console.log(triangle("{}", 29));
 // console.log(line);
