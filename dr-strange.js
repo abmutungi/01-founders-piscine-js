@@ -11,28 +11,53 @@ const addWeek = (date) => {
     "Saturday",
     "Sunday",
   ];
-
   const newDay = new Date(date);
-  console.log(newDay.getDay());
+  //console.log(newDay.getDay());
 
   let diffDays = Math.abs((firstDay - newDay) / 86400000);
 
-  console.log(diffDays);
+  //console.log(diffDays);
+  let count = 0;
+  let count2 = 0;
+  let count3 = 0;
 
-  Date.prototype.getWeekNumber = function () {
-    var d = new Date(
-      Date.UTC(this.getFullYear(), this.getMonth(), this.getDate())
-    );
-    var dayNum = d.getUTCDay() || 7;
-    d.setUTCDate(d.getUTCDate() + 4 - dayNum);
-    var yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
-    return Math.ceil(((d - yearStart) / 86400000 + 1) / 7);
-  };
-
-  if (date % 2 !== 0) {
-    return weekDay[newDay.getDay()];
+  for (let i = 0; i <= diffDays; i++) {
+    if (count <= 6) {
+      count3 = 0;
+      count2 = count;
+    } else {
+      count2 = 0;
+      count3 = count;
+      if (count == 14) {
+        count = 0;
+      }
+    }
+    count += 1;
   }
-  return "second" + weekDay[newDay.getDay()];
+  if (count <= 7) {
+    return weekDay[count2];
+  } else {
+    return "second" + weekDay[count3 - 7];
+  }
 };
 
-console.log(addWeek(new Date("0001-01-14")));
+console.log(addWeek(new Date("0001-01-22")));
+
+const timeTravel = (dateTime) => {
+  let newTime = dateTime["date"];
+
+  newTime.setHours(dateTime["hour"]);
+  newTime.setMinutes(dateTime["minute"]);
+  newTime.setSeconds(dateTime["second"]);
+
+  return newTime;
+};
+
+console.log(
+  timeTravel({
+    date: new Date("2020-05-29 23:25:22"),
+    hour: 21,
+    minute: 22,
+    second: 22,
+  }).toString()
+);
