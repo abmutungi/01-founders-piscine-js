@@ -13,5 +13,5 @@ const pyramid = (str, num) => {
   return res.trimEnd();
 };
 
-console.log(pyramid("ABC", 5));
+console.log(pyramid("a", 30));
 console.log("a");
