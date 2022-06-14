@@ -23,15 +23,15 @@ const trimTemp = (arrObj) => {
   });
 };
 
-const tempForecasts = (arrObj) => {
-  return arrObj.map((item) => {
-    item["temperature"] = fahrenheitToCelsius(item["temperature"]);
-    item["state"] = upperCasingStates(item["state"]);
-    return `${item["temperature"] + "elsius"} in ${item["city"]}, ${
-      item["state"]
-    }`;
-  });
-};
+const tempForecasts = (arr) => {
+    return arr.map(obj => {
+        obj['temperature'] = fahrenheitToCelsius([obj['temperature']])
+        obj['state'] = upperCasingStates([obj['state']])
+
+        return `${obj['temperature'] + 'elsius'} in ${obj['city']}, ${obj['state']}`
+    }
+    )
+}
 
 const tempForecast = {
   city: "Pasadena",
@@ -39,8 +39,7 @@ const tempForecast = {
   state: "california",
   region: "West",
 };
-
-// console.log(citiesOnly([tempForecast]));
-console.log(trimTemp([tempForecast]));
-// console.log(fahrenheitToCelsius([tempForecast]));
+console.log(tempForecasts([tempForecast]));
+// console.log(trimTemp([tempForecast]));
+//console.log(fahrenheitToCelsius([tempForecast.tem]));
 // console.log(upperCasingStates([tempForecast.state]));
