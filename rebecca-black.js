@@ -1,17 +1,3 @@
-const isValid = (date) => {
-  if (typeof date !== "string") {
-    date = new Date(date);
-  }
-  if (
-    date instanceof Date &&
-    !isNaN(date) &&
-    date.toString() !== "Invalid Date"
-  ) {
-    return true;
-  }
-  return false;
-};
-
 const isFriday = (day) => (new Date(day).getDay() === 5 ? true : false);
 const isWeekend = (day) => (new Date(day).getDay() === 0 || new Date(day).getDay() === 6 ? true : false);
 const isLeapYear = (year) => new Date(year).getFullYear() % 4 === 0 ? true : false;
