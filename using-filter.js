@@ -1,61 +1,18 @@
 const filterShortStateName = (arrStr) => arrStr.filter((str) => str.length < 7);
 
-// console.log(
-//   filterShortStateName([
-//     "Alaska",
-//     "Hawaii",
-//     "Idaho",
-//     "Iowa",
-//     "Kansas",
-//     "Maine",
-//     "Nevada",
-//     "Ohio",
-//     "Oregon",
-//     "Texas",
-//     "Utah",
-//   ])
-// );
-
 const filterStartVowel = (arrStr) =>
   arrStr.filter((str) => str.match(/^[aeiou]/gi));
-
-// console.log(
-//   filterStartVowel([
-//     "Alaska",
-//     "Hawaii",
-//     "Idaho",
-//     "Iowa",
-//     "Kansas",
-//     "Maine",
-//     "Nevada",
-//     "Ohio",
-//     "Oregon",
-//     "Texas",
-//     "Utah",
-//   ])
-// );
 
 let regex = /[aeiou]/gi;
 const filter5Vowels = (arrStr) =>
   arrStr.filter((str) => str.match(regex).length >= 5);
 
-// console.log(
-//   filter5Vowels([
-//     "California",
-//     "Louisiana",
-//     "North Carolina",
-//     "South Carolina",
-//     "South Dakota",
-//     "West Virginia",
-//   ])
-// );
-
 const filter1DistinctVowel = (arrStr) =>
-  arrStr
-    .match(/[aeiou]/gi)
-    .every(
-      (str) => str.toLowerCase() === arrStr.match(/[aeiou]/gi)[0].toLowerCase()
-    );
+  arrStr.filter((str) =>
+    str
+      .match(/[aeiou]/gi)
+      .every((v) => v.toLowerCase() === str.match(/[aeiou]/gi)[0].toLowerCase())
+  );
 
 // console.log(
 //   filter1DistinctVowel([
@@ -67,16 +24,17 @@ const filter1DistinctVowel = (arrStr) =>
 //     "Mississippi",
 //     "New Jersey",
 //     "Tennessee",
-//     "Washington",
 //   ])
+// );
+
 let regex2 = /[aeiou]+/i;
-let regex3 = /^[^aeiou]/gi;
+let regex3 = /^[aeiou]/gi;
 const multiFilter = (arrStr) =>
   arrStr.filter(
     (str) =>
       str["capital"].length >= 8 &&
       regex2.test(str["tag"]) &&
-      regex3.test(str["name"]) &&
+      !regex3.test(str["name"]) &&
       str["region"] !== "South"
   );
 
@@ -87,6 +45,18 @@ console.log(
       tag: "PA",
       name: "Pennsylvania",
       capital: "Harrisburg",
+      region: "Northeast",
+    },
+    {
+      tag: "MO",
+      name: "Missouri",
+      capital: "Jefferson City",
+      region: "Midwest",
+    },
+    {
+      tag: "RI",
+      name: "Rhode Island",
+      capital: "Providence",
       region: "Northeast",
     },
   ])
