@@ -27,14 +27,15 @@ const filter1DistinctVowel = (arrStr) =>
 //   ])
 // );
 
-let regex2 = /[aeiou]+/i;
-let regex3 = /^[aeiou]/gi;
+// let regex2 = /[aeiou]+/i;
+// let regex3 = /^[aeiou]/gi;
 const multiFilter = (arrStr) =>
   arrStr.filter(
     (str) =>
       str["capital"].length >= 8 &&
-      regex2.test(str["tag"]) &&
-      !regex3.test(str["name"]) &&
+      str['tag'].length == 2 &&
+      /[aeiou]+/i.test(str["tag"]) &&
+      !/^[aeiou]/gi.test(str["name"]) &&
       str["region"] !== "South"
   );
 
