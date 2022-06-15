@@ -24,14 +24,15 @@ const trimTemp = (arrObj) => {
 };
 
 const tempForecasts = (arr) => {
-    return arr.map(obj => {
-        obj['temperature'] = fahrenheitToCelsius([obj['temperature']])
-        obj['state'] = upperCasingStates([obj['state']])
+  return arr.map((obj) => {
+    obj["temperature"] = fahrenheitToCelsius([obj["temperature"]]);
+    obj["state"] = upperCasingStates([obj["state"]]);
 
-        return `${obj['temperature'] + 'elsius'} in ${obj['city']}, ${obj['state']}`
-    }
-    )
-}
+    return `${obj["temperature"] + "elsius"} in ${obj["city"]}, ${
+      obj["state"]
+    }`;
+  });
+};
 
 const tempForecast = {
   city: "Pasadena",
