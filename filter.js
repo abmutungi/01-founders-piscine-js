@@ -18,7 +18,7 @@ const reject = (arr, func) => {
       fals.push(element);
     }
   });
-  return [fals];
+  return fals;
 };
 
 const partition = (arr, func) =>
