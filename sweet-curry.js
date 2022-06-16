@@ -1,17 +1,22 @@
-const mult2 = (num) => {
-  mult2(num2);
-  return num * num2;
-};
+function mult2(num) {
+  return function (num2) {
+    return num * num2;
+  };
+}
 
-const add3 = (a) => {
-  add3(b);
-  add3(c);
-  return a + b + c;
-};
-
-const sub4 = (a) => {
-  sub4(b);
-  sub4(c);
-  sub4(d);
-  return a - b - c - d;
-};
+function add3(a) {
+  return function (b) {
+    return function (c) {
+      return a + b + c;
+    };
+  };
+}
+function sub4(a) {
+  return function (b) {
+    return function (c) {
+      return function (d) {
+        return a - b - c - d;
+      };
+    };
+  };
+}
