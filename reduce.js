@@ -1,5 +1,5 @@
 const fold = (arr, func, acc) =>
-  arr.map((int) => (acc = func(acc, int)))[arr.length - 1];
+arr.map((int) => (acc = func(acc, int)))[arr.length - 1];
 
 const foldRight = (arr, func, acc) => {
   let newArr = arr.slice().reverse();
