@@ -34,7 +34,7 @@ const getActive = () => {
 };
 const getBonannoPisano = () => {
   let arr = [
-    getActive()[0].filter((element) => element.id === "BonannoPisano"),
+    document.getElementById("BonannoPisano"),
     getActive()[0].filter((element) => element.id !== "BonannoPisano"),
   ];
   console.log(arr);
@@ -42,4 +42,4 @@ const getBonannoPisano = () => {
   return arr;
 };
 
-export {getActive, getArchitects, getClassical, getBonannoPisano };
+export { getActive, getArchitects, getClassical, getBonannoPisano };
